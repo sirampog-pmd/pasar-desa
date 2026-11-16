@@ -1,0 +1,323 @@
+/* BREADCRUMB */
+.breadcrumb-bar {
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    font-size: 14px;
+}
+
+.breadcrumb-bar .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gray);
+}
+
+.breadcrumb-bar a { color: var(--gray); text-decoration: none; }
+.breadcrumb-bar a:hover { color: var(--primary); }
+.breadcrumb-bar i { font-size: 10px; }
+.breadcrumb-bar span { color: var(--dark); font-weight: 600; }
+
+/* LAYOUT */
+.katalog-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 32px;
+    padding: 32px 24px 80px;
+    align-items: start;
+}
+
+/* SIDEBAR FILTER */
+.filter-sidebar {
+    position: sticky;
+    top: 100px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.filter-sidebar::-webkit-scrollbar { width: 6px; }
+.filter-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-header h3 {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-header h3 i { color: var(--primary); }
+
+.filter-close {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.filter-group {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-group:last-of-type { border-bottom: none; }
+
+.filter-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray);
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.filter-item:hover { background: var(--light); }
+
+.filter-item input {
+    accent-color: var(--primary);
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.filter-item span { display: flex; align-items: center; gap: 6px; }
+
+/* Harga */
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.price-inputs input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+}
+
+.price-inputs input:focus { border-color: var(--primary); }
+
+.price-inputs span { color: var(--gray); font-size: 12px; }
+
+.price-presets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.preset-btn {
+    padding: 7px 8px;
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--gray);
+    font-family: inherit;
+}
+
+.preset-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.btn-reset {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* PRODUK AREA */
+.produk-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.produk-toolbar h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.produk-toolbar p {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-toggle-btn {
+    display: none;
+    padding: 10px 16px;
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 8px;
+    align-items: center;
+    font-family: inherit;
+}
+
+.filter-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.sort-select {
+    padding: 10px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    background: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    color: var(--dark);
+}
+
+.sort-select:focus { border-color: var(--primary); }
+
+/* Active filters */
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.active-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.active-chip button {
+    background: none;
+    border: none;
+    color: var(--primary-dark);
+    cursor: pointer;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+}
+
+/* Grid produk - reuse .produk-grid, .produk-card dari style.css */
+.produk-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-state i {
+    font-size: 60px;
+    color: var(--border);
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: var(--gray);
+    margin-bottom: 24px;
+}
+
+/* Overlay mobile filter */
+.filter-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 98;
+}
+
+.filter-overlay.active { display: block; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .katalog-layout { grid-template-columns: 220px 1fr; gap: 24px; }
+    .produk-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .katalog-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 16px 60px;
+    }
+
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        width: 85%;
+        max-width: 320px;
+        z-index: 99;
+        border-radius: 0;
+        max-height: 100vh;
+        transition: left 0.3s ease;
+        box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    }
+
+    .filter-sidebar.active { left: 0; }
+    .filter-close { display: block; }
+    .filter-toggle-btn { display: flex; }
+    .produk-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .produk-toolbar { flex-direction: column; align-items: flex-start; }
+    .toolbar-actions { width: 100%; justify-content: space-between; }
+    .sort-select { flex: 1; }
+}

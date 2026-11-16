@@ -1,0 +1,311 @@
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 40px 0 60px;
+    align-items: start;
+}
+
+/* GALERI */
+.galeri-main {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--light);
+    border: 1px solid var(--border);
+}
+
+.galeri-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeri-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--danger);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.galeri-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.galeri-thumb {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.galeri-thumb:hover,
+.galeri-thumb.active { border-color: var(--primary); }
+
+.galeri-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO PRODUK */
+.detail-info .produk-toko {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray);
+    margin-bottom: 16px;
+}
+
+.detail-info .produk-toko i { color: var(--primary); }
+
+.detail-info h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.detail-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--gray);
+    flex-wrap: wrap;
+}
+
+.detail-rating-row .rating-val {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.detail-rating-row .rating-val i { color: #fbbf24; }
+
+.detail-harga {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.detail-harga .harga-main {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.detail-harga .harga-asli {
+    font-size: 18px;
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+.detail-harga .diskon-badge {
+    background: var(--danger);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* DESKRIPSI */
+.detail-section {
+    margin-bottom: 24px;
+}
+
+.detail-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.detail-section p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+.detail-info-umkm {
+    background: var(--light);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.detail-info-umkm .avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.detail-info-umkm .info-toko h4 {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.detail-info-umkm .info-toko p {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+/* QTY & ACTIONS */
+.qty-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.qty-row label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.qty-control button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--dark);
+    transition: 0.2s;
+}
+
+.qty-control button:hover { background: var(--light); }
+
+.qty-control input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.detail-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-beli {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.btn-beli:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22,163,74,0.3);
+}
+
+.btn-cart {
+    background: white;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.btn-cart:hover { background: var(--primary-light); }
+
+/* INFO BADGES */
+.detail-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.detail-badge {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.detail-badge i {
+    display: block;
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 28px; padding: 24px 0 40px; }
+    .detail-info h1 { font-size: 24px; }
+    .detail-harga .harga-main { font-size: 28px; }
+    .detail-actions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .detail-badges { grid-template-columns: repeat(3, 1fr); }
+    .galeri-thumbs { grid-template-columns: repeat(4, 1fr); }
+}
