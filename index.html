@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesaMart - Marketplace UMKM Desa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> Pasar <span>Desa</span>
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari produk UMKM desa...">
+            </div>
+            <div class="nav-actions">
+                <a href="keranjang.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <button class="btn-outline">Masuk</button>
+                <button class="btn-primary">Daftar</button>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="tagline">Bangga Produk Lokal</span>
+                <h1>Produk Terbaik dari <span>UMKM Desa</span> <br>di Kecamatan Sirampog</h1>
+                <p style="color:#191970">Dukung pengusaha lokal, temukan produk berkualitas langsung dari desa dengan harga terbaik.</p>
+                <div class="hero-buttons">
+                    <a href="produk.html" class="btn-primary btn-lg">
+                        <i class="fas fa-shopping-bag"></i> Mulai Belanja
+                    </a>
+                    <a href="#daftar-umkm" class="btn-outline btn-lg">Jadi Penjual</a>
+                </div>
+                <div class="hero-stats">
+                    <div><strong>1,250+</strong><span>UMKM</span></div>
+                    <div><strong>5,000+</strong><span>Produk</span></div>
+                    <div><strong>30+</strong><span>Desa</span></div>
+                </div>
+            </div>
+
+            <!-- HERO SLIDER (kanan) -->
+            <div class="hero-image">
+                <div class="hero-slider" id="heroSlider">
+                    <!-- Slide 1 -->
+                    <div class="hero-slide active">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="UMKM Desa">
+                        <div class="slide-caption">
+                            <span class="slide-badge"><i class="fas fa-store"></i> UMKM Unggulan</span>
+                            <h3>Produk Lokal Berkualitas</h3>
+                            <p>Langsung dari tangan pengrajin desa</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Kopi Desa">
+                        <div class="slide-caption">
+                            <span class="slide-badge"><i class="fas fa-mug-hot"></i> Kopi Pilihan</span>
+                            <h3>Cita Rasa Autentik Nusantara</h3>
+                            <p>Biji kopi pilihan dari petani desa</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80" alt="Batik Desa">
+                        <div class="slide-caption">
+                            <span class="slide-badge"><i class="fas fa-tshirt"></i> Kriya Tangan</span>
+                            <h3>Batik & Kerajinan Asli Desa</h3>
+                            <p>Motif tradisional, kualitas modern</p>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80" alt="Hasil Tani">
+                        <div class="slide-caption">
+                            <span class="slide-badge"><i class="fas fa-seedling"></i> Hasil Tani</span>
+                            <h3>Segar Langsung dari Kebun</h3>
+                            <p>Hasil panen desa tanpa perantara</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigasi panah -->
+                    <button class="slider-arrow prev" id="sliderPrev" aria-label="Sebelumnya">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow next" id="sliderNext" aria-label="Berikutnya">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Indikator dot -->
+                    <div class="slider-dots" id="sliderDots"></div>
+
+                    <!-- Progress bar -->
+                    <div class="slider-progress"><span id="sliderProgressBar"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEGORI -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kategori Produk</h2>
+                <p>Jelajahi berbagai produk unggulan dari UMKM desa</p>
+            </div>
+            <div class="kategori-grid">
+                <a href="produk.html?cat=makanan" class="kategori-card">
+                    <div class="kategori-icon" style="background:#FFE5D9"><i class="fas fa-utensils"></i></div>
+                    <span>Makanan</span>
+                </a>
+                <a href="produk.html?cat=minuman" class="kategori-card">
+                    <div class="kategori-icon" style="background:#D4F1F4"><i class="fas fa-mug-hot"></i></div>
+                    <span>Minuman</span>
+                </a>
+                <a href="produk.html?cat=kriya" class="kategori-card">
+                    <div class="kategori-icon" style="background:#E8D5F2"><i class="fas fa-palette"></i></div>
+                    <span>Kerajinan</span>
+                </a>
+                <a href="produk.html?cat=pertanian" class="kategori-card">
+                    <div class="kategori-icon" style="background:#D1F2D3"><i class="fas fa-seedling"></i></div>
+                    <span>Pertanian</span>
+                </a>
+                <a href="produk.html?cat=fashion" class="kategori-card">
+                    <div class="kategori-icon" style="background:#FFE5F0"><i class="fas fa-tshirt"></i></div>
+                    <span>Fashion</span>
+                </a>
+                <a href="produk.html?cat=kecantikan" class="kategori-card">
+                    <div class="kategori-icon" style="background:#FFF3D1"><i class="fas fa-spa"></i></div>
+                    <span>Kecantikan</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK UNGGULAN -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produk Unggulan</h2>
+                <p>Pilihan terbaik dari UMKM desa kami</p>
+            </div>
+            <div class="produk-grid" id="produkUnggulan"></div>
+            <div class="text-center mt-40">
+                <a href="produk.html" class="btn-primary btn-lg">Lihat Semua Produk <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kenapa Belanja di DesaMart?</h2>
+            </div>
+            <div class="fitur-grid">
+                <div class="fitur-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Produk Terverifikasi</h3>
+                    <p>Semua produk telah melalui kurasi kualitas dari pengrajin desa terpercaya</p>
+                </div>
+                <div class="fitur-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Pengiriman Cepat</h3>
+                    <p>Jaringan logistik ke seluruh Indonesia dengan tracking real-time</p>
+                </div>
+                <div class="fitur-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Dukung UMKM Lokal</h3>
+                    <p>Setiap pembelian langsung membantu perekonomian desa</p>
+                </div>
+                <div class="fitur-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Pembayaran Aman</h3>
+                    <p>Transaksi aman dengan berbagai metode pembayaran terpercaya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA PENJUAL -->
+    <section class="cta-section" id="daftar-umkm">
+        <div class="container cta-content">
+            <h2>Punya Produk UMKM? Bergabung Sekarang!</h2>
+            <p>Buka toko online gratis dan jangkau pembeli lebih luas</p>
+            <button class="btn-white btn-lg">Daftar Jadi Penjual <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo"><i class="fas fa-store"></i> Desa<span>Mart</span></div>
+                    <p>Marketplace UMKM desa Indonesia. Dukung produk lokal, bangun ekonomi desa.</p>
+                </div>
+                <div>
+                    <h4>Kategori</h4>
+                    <a href="#">Makanan</a>
+                    <a href="#">Minuman</a>
+                    <a href="#">Kerajinan</a>
+                </div>
+                <div>
+                    <h4>Bantuan</h4>
+                    <a href="#">Cara Belanja</a>
+                    <a href="#">Pengiriman</a>
+                    <a href="#">Kontak</a>
+                </div>
+                <div>
+                    <h4>Ikuti Kami</h4>
+                    <div class="social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesaMart. Semua hak dilindungi. Dibuat dengan ❤️ untuk UMKM Desa.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/keranjang.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> Desa<span>Mart</span>
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari produk UMKM desa...">
+            </div>
+            <div class="nav-actions">
+                <a href="keranjang.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="keranjang.html">Keranjang</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Checkout</span>
+        </div>
+    </div>
+
+    <!-- STEP INDICATOR -->
+    <div class="container">
+        <div class="steps">
+            <div class="step done">
+                <div class="step-num"><i class="fas fa-check"></i></div>
+                <span>Keranjang</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step active">
+                <div class="step-num">2</div>
+                <span>Checkout</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <span>Selesai</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM CHECKOUT -->
+    <div class="container">
+        <form class="checkout-layout" id="checkoutForm" onsubmit="prosesCheckout(event)">
+
+            <!-- LEFT: FORM -->
+            <div class="checkout-main">
+
+                <!-- ALAMAT PENGIRIMAN -->
+                <div class="checkout-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <h3>Alamat Pengiriman</h3>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label>Nama Penerima <span class="req">*</span></label>
+                            <input type="text" name="nama" required placeholder="Nama lengkap penerima">
+                        </div>
+                        <div class="form-group">
+                            <label>No. HP / WhatsApp <span class="req">*</span></label>
+                            <input type="tel" name="hp" required placeholder="08xxxxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="email@contoh.com">
+                        </div>
+                        <div class="form-group full">
+                            <label>Alamat Lengkap <span class="req">*</span></label>
+                            <textarea name="alamat" required rows="3" placeholder="Jalan, RT/RW, nomor rumah, patokan..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Provinsi <span class="req">*</span></label>
+                            <select name="provinsi" required>
+                                <option value="">Pilih Provinsi</option>
+                                <option>DKI Jakarta</option>
+                                <option>Jawa Barat</option>
+                                <option>Jawa Tengah</option>
+                                <option>Jawa Timur</option>
+                                <option>DI Yogyakarta</option>
+                                <option>Banten</option>
+                                <option>Bali</option>
+                                <option>Sumatera Utara</option>
+                                <option>Sulawesi Selatan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Kota / Kabupaten <span class="req">*</span></label>
+                            <input type="text" name="kota" required placeholder="Nama kota/kabupaten">
+                        </div>
+                        <div class="form-group">
+                            <label>Kecamatan <span class="req">*</span></label>
+                            <input type="text" name="kecamatan" required placeholder="Nama kecamatan">
+                        </div>
+                        <div class="form-group">
+                            <label>Kode Pos <span class="req">*</span></label>
+                            <input type="text" name="kodepos" required placeholder="12345" maxlength="5">
+                        </div>
+                        <div class="form-group full">
+                            <label>Catatan untuk Kurir</label>
+                            <input type="text" name="catatan" placeholder="(Opsional) mis. titip di pos keamanan">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- METODE PENGIRIMAN -->
+                <div class="checkout-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-icon"><i class="fas fa-truck"></i></span>
+                            <h3>Metode Pengiriman</h3>
+                        </div>
+                    </div>
+
+                    <div class="option-list">
+                        <label class="option-card">
+                            <input type="radio" name="shipping" value="reguler" data-ongkir="0" checked>
+                            <div class="option-body">
+                                <div class="option-icon"><i class="fas fa-box"></i></div>
+                                <div>
+                                    <strong>Reguler (3-5 hari)</strong>
+                                    <p>Gratis ongkir untuk semua produk desa</p>
+                                </div>
+                                <span class="option-price free">GRATIS</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="shipping" value="express" data-ongkir="15000">
+                            <div class="option-body">
+                                <div class="option-icon"><i class="fas fa-shipping-fast"></i></div>
+                                <div>
+                                    <strong>Express (1-2 hari)</strong>
+                                    <p>Pengiriman cepat prioritas</p>
+                                </div>
+                                <span class="option-price">Rp 15.000</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- METODE PEMBAYARAN -->
+                <div class="checkout-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-icon"><i class="fas fa-credit-card"></i></span>
+                            <h3>Metode Pembayaran</h3>
+                        </div>
+                    </div>
+
+                    <div class="option-list">
+                        <label class="option-card">
+                            <input type="radio" name="payment" value="transfer" checked>
+                            <div class="option-body">
+                                <div class="option-icon" style="background:#dbeafe; color:#1d4ed8"><i class="fas fa-university"></i></div>
+                                <div>
+                                    <strong>Transfer Bank</strong>
+                                    <p>BCA, BNI, BRI, Mandiri</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="payment" value="ewallet">
+                            <div class="option-body">
+                                <div class="option-icon" style="background:#fce7f3; color:#be185d"><i class="fas fa-wallet"></i></div>
+                                <div>
+                                    <strong>E-Wallet</strong>
+                                    <p>GoPay, OVO, DANA, ShopeePay</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="payment" value="qris">
+                            <div class="option-body">
+                                <div class="option-icon" style="background:#fef3c7; color:#b45309"><i class="fas fa-qrcode"></i></div>
+                                <div>
+                                    <strong>QRIS</strong>
+                                    <p>Scan dari semua aplikasi pembayaran</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="payment" value="cod">
+                            <div class="option-body">
+                                <div class="option-icon" style="background:#dcfce7; color:#15803d"><i class="fas fa-money-bill-wave"></i></div>
+                                <div>
+                                    <strong>COD (Bayar di Tempat)</strong>
+                                    <p>Bayar saat barang diterima</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: SUMMARY -->
+            <aside class="checkout-summary">
+                <h3>Ringkasan Pesanan</h3>
+
+                <div class="summary-items" id="summaryItems"></div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="coSubtotal">Rp 0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Diskon</span>
+                    <strong id="coDiskon" style="color:var(--danger)">-Rp 0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkos Kirim</span>
+                    <strong id="coOngkir" style="color:var(--primary)">GRATIS</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total Bayar</span>
+                    <strong id="coTotal">Rp 0</strong>
+                </div>
+
+                <!-- Voucher -->
+                <div class="voucher-box">
+                    <input type="text" id="voucherInput" placeholder="Kode voucher (opsional)">
+                    <button type="button" onclick="pakaiVoucher()">Pakai</button>
+                </div>
+                <p id="voucherMsg" class="voucher-msg"></p>
+
+                <button type="submit" class="btn-checkout" id="btnBayar">
+                    Buat Pesanan <i class="fas fa-lock"></i>
+                </button>
+
+                <div class="summary-note">
+                    <i class="fas fa-shield-alt"></i>
+                    Pembayaran aman & terenkripsi
+                </div>
+            </aside>
+        </form>
+    </div>
+
+    <!-- MODAL SUKSES -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Pesanan Berhasil!</h2>
+            <p>Terima kasih telah berbelanja produk UMKM desa.</p>
+            <div class="modal-order">
+                <span>Nomor Pesanan</span>
+                <strong id="orderNumber">#ORD-XXXXXX</strong>
+            </div>
+            <p class="modal-hint">Konfirmasi pembayaran akan dikirim ke WhatsApp Anda.</p>
+            <a href="index.html" class="btn-primary btn-lg">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesaMart. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

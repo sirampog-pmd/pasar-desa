@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Produk - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/penjual.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- SIDEBAR (copy dari dashboard) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo"><i class="fas fa-store"></i> Desa<span>Mart</span></div>
+                <p>Panel Penjual</p>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-label">Utama</div>
+                <a href="penjual-dashboard.html" class="menu-item"><i class="fas fa-chart-pie"></i> Overview</a>
+                <a href="penjual-produk.html" class="menu-item active"><i class="fas fa-box"></i> Kelola Produk</a>
+                <a href="penjual-pesanan.html" class="menu-item"><i class="fas fa-shopping-bag"></i> Pesanan Masuk <span class="badge-menu">3</span></a>
+                <div class="menu-label">Lainnya</div>
+                <a href="index.html" class="menu-item"><i class="fas fa-home"></i> Ke Toko Utama</a>
+                <a href="#" class="menu-item" style="color:var(--danger)"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- KONTEN -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <button class="mobile-sidebar-btn" id="menuToggle" style="margin-bottom:12px"><i class="fas fa-bars"></i></button>
+                    <h1>Kelola Produk</h1>
+                    <p>Daftar semua produk yang Anda jual di DesaMart.</p>
+                </div>
+                <button class="btn-primary" onclick="bukaFormProduk()"><i class="fas fa-plus"></i> Tambah Produk</button>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Semua Produk (<span id="totalProduk">0</span>)</h3>
+                    <div class="search-order" style="max-width: 300px; padding: 8px 16px;">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchProduk" placeholder="Cari nama produk...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Info Produk</th>
+                                <th>Kategori</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th>Status</th>
+                                <th style="text-align:right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="produkTableBody">
+                            <!-- Diisi oleh JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL FORM TAMBAH/EDIT PRODUK -->
+    <div class="modal-overlay" id="modalProduk">
+        <div class="modal-form">
+            <div class="modal-form-header">
+                <h3 id="modalTitle">Tambah Produk Baru</h3>
+                <button class="modal-close" onclick="tutupFormProduk()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-form-body">
+                <form id="formProduk" onsubmit="simpanProduk(event)">
+                    <input type="hidden" id="produkId">
+                    
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label>Nama Produk <span class="req">*</span></label>
+                            <input type="text" id="pNama" required placeholder="Contoh: Kopi Arabika Gayo Premium 250gr">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kategori <span class="req">*</span></label>
+                            <select id="pKategori" required>
+                                <option value="">Pilih Kategori</option>
+                                <option value="makanan">Makanan</option>
+                                <option value="minuman">Minuman</option>
+                                <option value="kriya">Kerajinan</option>
+                                <option value="pertanian">Pertanian</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="kecantikan">Kecantikan</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Stok <span class="req">*</span></label>
+                            <input type="number" id="pStok" required min="0" placeholder="Contoh: 50">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Harga Jual (Rp) <span class="req">*</span></label>
+                            <input type="number" id="pHarga" required min="0" placeholder="Contoh: 45000">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Harga Asli / Coret (Opsional)</label>
+                            <input type="number" id="pHargaAsli" min="0" placeholder="Kosongkan jika tidak diskon">
+                        </div>
+
+                        <div class="form-group full">
+                            <label>URL Gambar Produk <span class="req">*</span></label>
+                            <input type="url" id="pGambar" required placeholder="https://contoh.com/gambar.jpg">
+                            <small style="color:var(--gray); font-size:12px; margin-top:4px">*Untuk demo, masukkan URL gambar dari internet.</small>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Deskripsi Produk</label>
+                            <textarea id="pDeskripsi" rows="3" placeholder="Jelaskan keunggulan produk Anda..."></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-form-footer">
+                <button class="btn-outline" onclick="tutupFormProduk()">Batal</button>
+                <button class="btn-primary" onclick="document.getElementById('formProduk').requestSubmit()">
+                    <i class="fas fa-save"></i> Simpan Produk
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/penjual.js"></script>
+    <script>
+        // Logika khusus halaman produk
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTabelProduk();
+            
+            // Search listener
+            document.getElementById('searchProduk').addEventListener('input', (e) => {
+                renderTabelProduk(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

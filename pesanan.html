@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Saya - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pesanan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> Desa<span>Mart</span>
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari produk UMKM desa...">
+            </div>
+            <div class="nav-actions">
+                <a href="keranjang.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <button class="btn-outline">Masuk</button>
+                <button class="btn-primary">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Pesanan Saya</span>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container pesanan-container">
+        <div class="pesanan-head">
+            <div>
+                <h1>Pesanan Saya</h1>
+                <p>Kelola dan lacak semua pesanan Anda</p>
+            </div>
+            <a href="produk.html" class="btn-primary">
+                <i class="fas fa-plus"></i> Belanja Lagi
+            </a>
+        </div>
+
+        <!-- TAB FILTER -->
+        <div class="tab-filter" id="tabFilter">
+            <button class="tab-btn active" data-status="all">
+                Semua <span class="tab-count" id="countAll">0</span>
+            </button>
+            <button class="tab-btn" data-status="pending">
+                <i class="fas fa-clock"></i> Belum Bayar <span class="tab-count" id="countPending">0</span>
+            </button>
+            <button class="tab-btn" data-status="diproses">
+                <i class="fas fa-box"></i> Diproses <span class="tab-count" id="countDiproses">0</span>
+            </button>
+            <button class="tab-btn" data-status="dikirim">
+                <i class="fas fa-truck"></i> Dikirim <span class="tab-count" id="countDikirim">0</span>
+            </button>
+            <button class="tab-btn" data-status="selesai">
+                <i class="fas fa-check-circle"></i> Selesai <span class="tab-count" id="countSelesai">0</span>
+            </button>
+            <button class="tab-btn" data-status="batal">
+                <i class="fas fa-times-circle"></i> Dibatalkan <span class="tab-count" id="countBatal">0</span>
+            </button>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="pesanan-toolbar">
+            <div class="search-order">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchOrder" placeholder="Cari nomor pesanan atau nama produk...">
+            </div>
+            <select id="sortOrder" class="sort-select">
+                <option value="terbaru">Terbaru</option>
+                <option value="terlama">Terlama</option>
+                <option value="termahal">Total Tertinggi</option>
+            </select>
+        </div>
+
+        <!-- LIST PESANAN -->
+        <div id="pesananList"></div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-pesanan" id="emptyPesanan" style="display:none">
+            <div class="empty-icon">
+                <i class="fas fa-receipt"></i>
+            </div>
+            <h2 id="emptyTitle">Belum Ada Pesanan</h2>
+            <p id="emptyText">Yuk mulai belanja produk UMKM desa terbaik!</p>
+            <a href="produk.html" class="btn-primary btn-lg">
+                <i class="fas fa-shopping-bag"></i> Mulai Belanja
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL DETAIL PESANAN -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-detail">
+            <div class="modal-detail-header">
+                <div>
+                    <h3 id="modalOrderId">#ORD-000000</h3>
+                    <p id="modalOrderDate">-</p>
+                </div>
+                <button class="modal-close" onclick="tutupModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-detail-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesaMart. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pesanan.js"></script>
+</body>
+</html>

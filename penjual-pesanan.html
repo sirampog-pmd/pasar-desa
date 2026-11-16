@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Masuk - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/penjual.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo"><i class="fas fa-store"></i> Desa<span>Mart</span></div>
+                <p>Panel Penjual</p>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-label">Utama</div>
+                <a href="penjual-dashboard.html" class="menu-item"><i class="fas fa-chart-pie"></i> Overview</a>
+                <a href="penjual-produk.html" class="menu-item"><i class="fas fa-box"></i> Kelola Produk</a>
+                <a href="penjual-pesanan.html" class="menu-item active"><i class="fas fa-shopping-bag"></i> Pesanan Masuk <span class="badge-menu">3</span></a>
+                <div class="menu-label">Lainnya</div>
+                <a href="index.html" class="menu-item"><i class="fas fa-home"></i> Ke Toko Utama</a>
+                <a href="#" class="menu-item" style="color:var(--danger)"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- KONTEN -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <button class="mobile-sidebar-btn" id="menuToggle" style="margin-bottom:12px"><i class="fas fa-bars"></i></button>
+                    <h1>Pesanan Masuk</h1>
+                    <p>Kelola pesanan dari pembeli dan perbarui status pengiriman.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Daftar Pesanan</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Pesanan</th>
+                                <th>Pembeli</th>
+                                <th>Tanggal</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Update Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>#ORD-1042</strong></td>
+                                <td>
+                                    <div class="table-product-info">
+                                        <strong>Budi Santoso</strong>
+                                        <span>081234567890</span>
+                                    </div>
+                                </td>
+                                <td>Hari ini, 14:20</td>
+                                <td><strong>Rp 90.000</strong></td>
+                                <td><span class="status-badge pending" id="status-1042"><i class="fas fa-clock"></i> Pending</span></td>
+                                <td>
+                                    <select class="sort-select" style="padding:6px 12px; font-size:12px; border-radius:8px" onchange="updateStatusPesanan('1042', this.value)">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="diproses">Diproses</option>
+                                        <option value="dikirim">Dikirim</option>
+                                        <option value="selesai">Selesai</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-1041</strong></td>
+                                <td>
+                                    <div class="table-product-info">
+                                        <strong>Siti Aminah</strong>
+                                        <span>089876543210</span>
+                                    </div>
+                                </td>
+                                <td>Hari ini, 10:15</td>
+                                <td><strong>Rp 95.000</strong></td>
+                                <td><span class="status-badge diproses" id="status-1041"><i class="fas fa-box"></i> Diproses</span></td>
+                                <td>
+                                    <select class="sort-select" style="padding:6px 12px; font-size:12px; border-radius:8px" onchange="updateStatusPesanan('1041', this.value)">
+                                        <option value="pending">Pending</option>
+                                        <option value="diproses" selected>Diproses</option>
+                                        <option value="dikirim">Dikirim</option>
+                                        <option value="selesai">Selesai</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-1040</strong></td>
+                                <td>
+                                    <div class="table-product-info">
+                                        <strong>Andi Wijaya</strong>
+                                        <span>081122334455</span>
+                                    </div>
+                                </td>
+                                <td>Kemarin, 16:30</td>
+                                <td><strong>Rp 105.000</strong></td>
+                                <td><span class="status-badge dikirim" id="status-1040"><i class="fas fa-truck"></i> Dikirim</span></td>
+                                <td>
+                                    <select class="sort-select" style="padding:6px 12px; font-size:12px; border-radius:8px" onchange="updateStatusPesanan('1040', this.value)">
+                                        <option value="pending">Pending</option>
+                                        <option value="diproses">Diproses</option>
+                                        <option value="dikirim" selected>Dikirim</option>
+                                        <option value="selesai">Selesai</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/penjual.js"></script>
+</body>
+</html>

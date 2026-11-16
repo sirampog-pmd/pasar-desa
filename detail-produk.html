@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> Desa<span>Mart</span>
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari produk UMKM desa...">
+            </div>
+            <div class="nav-actions">
+                <a href="keranjang.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <button class="btn-outline">Masuk</button>
+                <button class="btn-primary">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="produk.html">Produk</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="breadcrumbProduk">Detail</span>
+        </div>
+    </div>
+
+    <!-- PRODUK DETAIL -->
+    <div class="container" id="detailContainer">
+        <!-- diisi oleh JS -->
+    </div>
+
+    <!-- PRODUK TERKAIT -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header" style="text-align:left; margin-bottom: 24px;">
+                <h2 style="font-size: 24px;">Produk Terkait</h2>
+            </div>
+            <div class="produk-grid" id="produkTerkait"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesaMart. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

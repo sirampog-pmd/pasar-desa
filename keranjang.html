@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/keranjang.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> Desa<span>Mart</span>
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari produk UMKM desa...">
+            </div>
+            <div class="nav-actions">
+                <a href="keranjang.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <button class="btn-outline">Masuk</button>
+                <button class="btn-primary">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Keranjang Belanja</span>
+        </div>
+    </div>
+
+    <!-- STEP INDICATOR -->
+    <div class="container">
+        <div class="steps">
+            <div class="step active">
+                <div class="step-num"><i class="fas fa-shopping-cart"></i></div>
+                <span>Keranjang</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <span>Checkout</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <span>Selesai</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+        <div class="keranjang-layout" id="keranjangLayout">
+            <!-- LIST PRODUK -->
+            <main class="keranjang-main">
+                <div class="keranjang-header">
+                    <h1>Keranjang Belanja</h1>
+                    <span id="totalItemsLabel">0 produk</span>
+                </div>
+
+                <!-- List item -->
+                <div id="keranjangList"></div>
+
+                <!-- Tombol lanjut belanja -->
+                <a href="produk.html" class="lanjut-belanja">
+                    <i class="fas fa-arrow-left"></i> Lanjut Belanja
+                </a>
+            </main>
+
+            <!-- SUMMARY -->
+            <aside class="keranjang-summary">
+                <h3>Ringkasan Belanja</h3>
+
+                <div class="summary-row">
+                    <span>Total Harga (<span id="sumQty">0</span> produk)</span>
+                    <strong id="sumHarga">Rp 0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Total Diskon</span>
+                    <strong id="sumDiskon" style="color: var(--danger)">-Rp 0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkos Kirim</span>
+                    <strong style="color: var(--primary)">Gratis</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total Bayar</span>
+                    <strong id="sumTotal">Rp 0</strong>
+                </div>
+
+                <button class="btn-checkout" id="btnCheckout">
+                    Lanjut ke Checkout <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div class="summary-note">
+                    <i class="fas fa-shield-alt"></i>
+                    Transaksi aman & terpercaya
+                </div>
+            </aside>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-cart" id="emptyCart" style="display:none">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2>Keranjang Anda Kosong</h2>
+            <p>Yuk mulai belanja produk UMKM desa terbaik!</p>
+            <a href="produk.html" class="btn-primary btn-lg">
+                <i class="fas fa-shopping-bag"></i> Mulai Belanja
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesaMart. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/keranjang.js"></script>
+</body>
+</html>

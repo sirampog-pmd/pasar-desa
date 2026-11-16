@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Penjual - DesaMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/penjual.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo"><i class="fas fa-store"></i> Desa<span>Mart</span></div>
+                <p>Panel Penjual</p>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-label">Utama</div>
+                <a href="penjual-dashboard.html" class="menu-item active"><i class="fas fa-chart-pie"></i> Overview</a>
+                <a href="penjual-produk.html" class="menu-item"><i class="fas fa-box"></i> Kelola Produk</a>
+                <a href="penjual-pesanan.html" class="menu-item"><i class="fas fa-shopping-bag"></i> Pesanan Masuk <span class="badge-menu">3</span></a>
+                
+                <div class="menu-label">Lainnya</div>
+                <a href="index.html" class="menu-item"><i class="fas fa-home"></i> Ke Toko Utama</a>
+                <a href="#" class="menu-item" style="color:var(--danger)"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            </div>
+        </aside>
+
+        <!-- OVERLAY MOBILE -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- KONTEN -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <button class="mobile-sidebar-btn" id="menuToggle" style="margin-bottom:12px"><i class="fas fa-bars"></i></button>
+                    <h1>Halo, Kopi Pak Tani 👋</h1>
+                    <p>Berikut ringkasan performa toko Anda hari ini.</p>
+                </div>
+                <a href="penjual-produk.html" class="btn-primary"><i class="fas fa-plus"></i> Tambah Produk</a>
+            </div>
+
+            <!-- STATISTIK -->
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>Pendapatan (Bulan Ini)</h3>
+                    <h2>Rp 4.250.000</h2>
+                    <div class="trend up"><i class="fas fa-arrow-up"></i> 12.5% vs bulan lalu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color:#3b82f6; background:#eff6ff"><i class="fas fa-shopping-bag"></i></div>
+                    <h3>Pesanan Baru</h3>
+                    <h2>34</h2>
+                    <div class="trend up"><i class="fas fa-arrow-up"></i> 8.2% vs bulan lalu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color:#8b5cf6; background:#f5f3ff"><i class="fas fa-box-open"></i></div>
+                    <h3>Produk Aktif</h3>
+                    <h2>18</h2>
+                    <div class="trend"><span style="color:var(--gray)">2 produk stok menipis</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color:#f59e0b; background:#fffbeb"><i class="fas fa-star"></i></div>
+                    <h3>Rating Toko</h3>
+                    <h2>4.9 <span style="font-size:14px; color:var(--gray); font-weight:500">/ 5.0</span></h2>
+                    <div class="trend up">Berdasarkan 128 ulasan</div>
+                </div>
+            </div>
+
+            <!-- TABEL PESANAN TERBARU -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Pesanan Terbaru</h3>
+                    <a href="penjual-pesanan.html" style="font-size:13px; font-weight:600; color:var(--primary); text-decoration:none">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Pesanan</th>
+                                <th>Pembeli</th>
+                                <th>Produk</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>#ORD-1042</strong></td>
+                                <td>Budi Santoso</td>
+                                <td>Kopi Arabika 250gr (2x)</td>
+                                <td><strong>Rp 90.000</strong></td>
+                                <td><span class="status-badge pending"><i class="fas fa-clock"></i> Pending</span></td>
+                                <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-1041</strong></td>
+                                <td>Siti Aminah</td>
+                                <td>Madu Hutan 500ml (1x)</td>
+                                <td><strong>Rp 95.000</strong></td>
+                                <td><span class="status-badge diproses"><i class="fas fa-box"></i> Diproses</span></td>
+                                <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-1040</strong></td>
+                                <td>Andi Wijaya</td>
+                                <td>Teh Herbal Rosella (3x)</td>
+                                <td><strong>Rp 105.000</strong></td>
+                                <td><span class="status-badge dikirim"><i class="fas fa-truck"></i> Dikirim</span></td>
+                                <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/penjual.js"></script>
+</body>
+</html>
